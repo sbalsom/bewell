@@ -44,50 +44,66 @@
   </div>
 
   <% end %>
-
-
-<h3 id="upcoming-header">Upcoming Appointments</h3>
-  <% if @today_booking %>
-    <div class="today border padded-box d-flex mb-5 relative m-80">
-      <div class="calendar mr-4">
-          <p id="date"> <%= @today_booking.starts_at.strftime("%d") %> </p>
-          <i class="far fa-calendar" aria-hidden="true"></i>
-        </div>
-        <div class="calendar-date pl-3 flex-grow">
-          <h3 class="mb-3 today-date"> <%= @today_booking.starts_at.strftime("%A, %d %B") %> at <%= @today_booking.time.strftime("%H:%M")%></h3>
-          <%= link_to  therapist_booking_video_session_path(@today_booking.therapist, @today_booking), class: "d-flex flex-column align-items-center" do %>
-            <i class="fas fa-video mb-3" aria-hidden="true"></i>
-            <% end %>
-        </div>
-        <div class="d-flex flex-column justify-content-center align-items-center">
-        <h7 id="badge-name">Dr. <%= @today_booking.therapist.first_name %> <%= @today_booking.therapist.last_name %> </h7>
-          <%= link_to therapist_path(@today_booking.therapist) do %>
-          <%= cl_image_tag @today_booking.therapist.photo, width: 140, class: "avatar-small" %>
-          <% end %>
+<div class="padded-container">
+  <h3 id="today-header">Today's Appointment</h3>
+    <% if @today_booking %>
+      <div class="today border padded-box d-flex mb-5 relative">
+        <div class="calendar mr-4">
+            <p id="date"> <%= @today_booking.starts_at.strftime("%d") %> </p>
+            <i class="far fa-calendar" aria-hidden="true"></i>
           </div>
+          <div class="calendar-date pl-3 flex-grow">
+            <h3 class="mb-3 today-date"> <%= @today_booking.starts_at.strftime("%A, %d %B") %> at <%= @today_booking.time.strftime("%H:%M")%></h3>
+            <%= link_to  therapist_booking_video_session_path(@today_booking.therapist, @today_booking), class: "d-flex flex-column align-items-center" do %>
+              <i class="fas fa-video mb-3" aria-hidden="true"></i>
+              <% end %>
+          </div>
+          <div class="d-flex flex-column justify-content-center align-items-center">
+          <h7 id="badge-name">Dr. <%= @today_booking.therapist.first_name %> <%= @today_booking.therapist.last_name %> </h7>
+            <%= link_to therapist_path(@today_booking.therapist) do %>
+            <%= cl_image_tag @today_booking.therapist.photo, width: 140, class: "avatar-small" %>
+            <% end %>
+            </div>
 
 
-        </div>
-    <% else %>
-    <div class="empty border padded-box mb-5 m-80">
-      <p>You have no upcoming appointments. When you schedule one, the call button will be displayed here.</p>
-    </div>
-  <% end %>
-  <h3 id="past-header">Past Appointments</h3>
-  <% if !@past_bookings.blank? %>
-    <div class="past padded-box m-80 mb-5">
-     <%= render partial: "shared/past_bookings", past_bookings: @past_bookings %>
-    </div>
- <%  %>
-  <% else %>
-    <div class="empty border padded-box mb-5 m-80">
-      <p>You have not completed any sessions. When you have, you will be able to access them here.</p>
-    </div>
-<% end %>
+          </div>
+      <% else %>
+      <div class="empty border padded-box mb-5 today">
+        <p>You don't have an appointment today. Check your upcoming appointments below. When it's time for your next session, the call button will display here.</p>
+      </div>
+    <% end %>
+   <div class="d-flex">
+    <div class="past-bookings mr-4">
+      <h3 id="past-header">Past Appointments</h3>
+       <% if !@past_bookings.blank? %>
+         <div class="past padded-box mb-5">
+          <%= render partial: "shared/past_bookings", past_bookings: @past_bookings %>
+         </div>
+        <%  %>
+       <% else %>
+         <div class="empty border padded-box mb-4 past">
+           <p>You have not completed any sessions. When you have, you will be able to access them here.</p>
+         </div>
+       <% end %>
+     </div>
 
+     <div class="upcoming bookings ml-4">
+      <h3 id="upcoming-header">Upcoming Appointments</h3>
+       <% if !@next_bookings.blank? %>
+         <div class="past padded-box mb-5">
+          <%= render partial: "shared/future_bookings", past_bookings: @past_bookings %>
+         </div>
+        <%  %>
+       <% else %>
+         <div class="empty border padded-box mb-4 past">
+           <p>You do not have any upcoming appointments. Once you do, you will be able to access them here.</p>
+         </div>
+       <% end %>
+     </div>
+   </div>
+  </div>
 </div>
-</div>
-    </div>
+
 
 
 

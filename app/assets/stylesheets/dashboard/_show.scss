@@ -1,27 +1,39 @@
 // global styles
 .padded-box {
-  padding: 0 20px;
+  padding: 20px 20px;
   border: 1px solid $border;
   border-radius: 18px;
-
 }
 
 .white-text {
   color:white;
 }
 
-// .ab-photo {
-//   position:absolute;
-//   top:0;
-// }
+.vert-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-.m-80 {
-    margin: 0 80px;
+.fit-content {
+  width:fit-content;
 }
 
 // whole page stylıng
 
 .dashboard-container {
+
+  h5 {
+    font-size:1rem;
+  }
+
+  h6 {
+    font-size:0.7rem;
+  }
+
+  .padded-container {
+    padding: 0 80px;
+  }
 
 
 #dash {
@@ -44,28 +56,28 @@
     position:relative;
   }
 
-  #upcoming-header, #past-header {
-    font-size:24px;
+  #upcoming-header, #past-header, #today-header {
+    font-size:1.3rem;
     font-weight:lighter;
-    margin-left:80px;
     margin-bottom: 10px;
-
   }
 
 
 .empty {
-  height:150px;
+  height: fit-content;
+  padding: 10px 10px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   p {
-    font-size: 23px;
+    font-size: 1.2rem;
     color: #a7a8b3;
     text-align:center;
   }
 
 }
-// assigned therapıst stylıng
+
+// assigned therapist stylıng
 .assigned {
   height: fit-content;
   background-color: #94ABE4;
@@ -75,7 +87,6 @@
     font-weight: normal;
     color:white;
     margin-bottom:20px;
-    // margin-top:20px;
   }
   h4, p {
     color:white;
@@ -89,7 +100,6 @@
 }
 
 #no-therapist {
-  // opacity:0.5;
   background:
   linear-gradient(
       rgba(120, 130, 233, 0.45),
@@ -102,38 +112,6 @@
   width:100px;
   height:100px;
 }
-// past bookings styling
-.past {
-  border: 1px solid #DFE2E7;
-  padding-bottom: 30px;
-
-  a {
-    color:grey;
-  }
-  a:hover {
-    color:$main;
-  }
-  h4 {
-    font-size: 21px;
-    padding: 10px 0 0 0 ;
-  }
-
-  #line {
-    font-size:20px
-  }
-
-
-}
-.past-booking-card {
-  height: 150px;
-  border-top: 1px solid #CDD4D6;
-  margin-top:20px;
-  padding: 20px 20px 0px 20px;
-}
-.past-booking-card:first-child {
-  border:none;
-}
-
 
 // today booking stylıng
 
@@ -143,11 +121,16 @@
 
 }
 
+#today-header {
+  text-align:center;
+}
+
 .today {
   padding: 40px;
   margin: 0 80px;
   height: 200px;
   top: 25px;
+  width:70vw;
 
   a {
     width: fit-content;
@@ -218,6 +201,47 @@
     font-size: 15px;
     font-weight: 900;
   }
+
+
+// past bookings styling
+.past {
+  border: 1px solid #DFE2E7;
+  width: 40vw;
+  height: fit-content;
+
+  #notice {
+    font-size: 0.7rem;
+    color: grey;
+  }
+
+  a {
+    color:grey;
+  }
+  a:hover {
+    color:$main;
+  }
+  h4 {
+    font-size: 21px;
+    padding: 10px 0 0 0 ;
+  }
+
+  #line {
+    font-size:20px
+  }
+
+.button-container a {
+  font-size:.7rem;
+}
+
+}
+.past-booking-card {
+  height: 150px;
+  border-top: 1px solid #CDD4D6;
+  padding: 20px 20px 0px 20px;
+}
+.past-booking-card:first-child {
+  border:none;
+}
 
 
 

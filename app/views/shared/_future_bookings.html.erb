@@ -1,4 +1,4 @@
-<% @past_bookings.each do |booking| %>
+<% @next_bookings.each do |booking| %>
   <div class="past-booking-card d-flex">
     <div class="avatar-box vert-center">
       <%= link_to therapist_path(booking.therapist) do %>
@@ -22,16 +22,13 @@
       </div>
           <div class="button-container d-flex justify-content-around">
         <% therapist = booking.therapist %>
-        <% if @user_therapist != therapist %>
-        <%= link_to therapist_assign_me_path(therapist) do %>
-        <div class="mr-1">
-          Assign as my therapist
-        </div>
-        <% end %>
-        <% end %>
-        <% reviewed = @my_reviews.where(therapist: therapist) %>
-        <% if reviewed.blank? %>
-        <%= link_to "Leave Review", new_therapist_review_path(therapist), class: "ml-1" %>
+        <% if booking.starts_at > Date.today.beginning_of_day %>
+        <%= link_to "Cancel", therapist_booking_path(therapist, booking),  method: :delete, class: "mr-1", data: {
+          confirm: "Are you sure?"
+        } %>
+        <%= link_to "Reschedule", edit_therapist_booking_path(therapist, booking), class: "ml-1" %>
+        <% else %>
+        <p id="notice">You can only cancel or reschedule 24 hours before your appointment</p>
         <% end %>
       </div>
     </div>
