@@ -5,19 +5,37 @@
       <%= cl_image_tag booking.therapist.photo, width: 140, class: "avatar-small mb-3" %>
       <% end %>
       <h5>Dr. <%= booking.therapist.first_name %> <%= booking.therapist.last_name %> </h5>
+
     </div>
 
     <div class="past-info d-flex flex-column justify-content-around ml-5">
-     <div class="flex-1">
-      <h3> <%= booking.starts_at.strftime("%A, %d.%m.%Y %H:%M") %></h3>
-       <% if booking.free %>
-       <h4> 15 Minutes </h4>
-       <% else %>
-       <h4> 60 Minutes</h4>
-       <% end %>
-     </div>
-      <div class="button-container">
-        <%= button_tag "Leave Review", class: "specialty-tag" %>
+     <div class="flex-1 d-flex flex-column justify-content-between">
+      <div class="info">
+        <h5> <%= booking.starts_at.strftime("%A, %d %B") %>
+           at <%= booking.time.strftime("%H:%M")%>
+        </h5>
+         <% if booking.free %>
+         <h6> 15 Minute consultation </h6>
+         <% else %>
+         <h6> 60 Minute Session</h6>
+         <% end %>
+         <h6>with Dr. <%= booking.therapist.first_name %> <%= booking.therapist.last_name %> </h6>
+        </div>
+      </div>
+      <div class="button-container d-flex justify-content-between mt-2">
+        <% therapist = booking.therapist %>
+        <% if @user_therapist != therapist %>
+        <%= link_to therapist_assign_me_path(therapist) do %>
+        <div class="">
+          Assign as my therapist
+        </div>
+        <% end %>
+        <% end %>
+        <% reviewed = @my_reviews.where(therapist: therapist) %>
+        <% if reviewed.blank? %>
+        <a href="#" id="line">|</a>
+        <%= link_to "Leave Review", new_therapist_review_path(therapist), class: "" %>
+        <% end %>
       </div>
     </div>
   </div>

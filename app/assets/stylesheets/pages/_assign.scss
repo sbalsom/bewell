@@ -1,0 +1,45 @@
+.assign-container {
+  #assign-heading {
+    font-size: 1.4rem;
+    margin-top:5px;
+  }
+
+ .padded-box{
+    margin-top:30px;
+    }
+
+  h3{
+    margin-top:40px;
+    margin-bottom:10px;
+  }
+
+  h4{
+    margin-bottom:40px;
+  }
+
+  h5{
+    font-weight: 100;
+  }
+
+  #yes {
+    margin:0;
+    height: 37px;
+    font-size:18px;
+    font-weight:bold;
+  }
+
+  #no {
+    border-radius:5px;
+    margin:0;
+    font-size:18px;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+}
+
+a:hover {
+  text-decoration:none;
+}

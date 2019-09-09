@@ -21,19 +21,18 @@
 .button-home {
   padding:10px 20px;
   border-radius: 4px;
-  background-color: transparent;
+  background-color: $main;
   color:white;
   text-align: center;
   font-size:22px;
   line-height: 60px;
-  border:1px solid white;
 }
 
 .button-home:hover {
-  background: #7881E9;
+  background: rgba(255, 255, 255, 0.25);
   text-decoration: none;
   color: white;
-  border: none;
+  border: 1px solid white;
 }
 
 .button-navy-small {
@@ -93,8 +92,8 @@
   align-items: center;
 }
 .white-button{
-  height: 40px;
-  width: 181px;
+  height: 20px;
+  width: 120px;
   border-radius: 4px;
   background-color: white;
   color: #7882e9;
@@ -102,7 +101,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  font-size: 20px;
   padding: 26px 0;
+
+}
+  #esinswhitebutton {
+  padding:5px 5px;
+  width: 160px;
+  font-size: 18px;
 }
 
+#welcome_page-button {
+  width: 341px;
+}

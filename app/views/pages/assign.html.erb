@@ -1,0 +1,26 @@
+<div class="assign-container container">
+  <h4 class="mt-5">We hope your session went well. </h4>
+  <h5>Thank you for trusting iWell.</h5>
+
+
+  <div class="padded-box d-flex">
+      <%= cl_image_tag @therapist.photo, class: "avatar-medium px-3 py-3" %>
+    <div class="flex-item-2 d-flex flex-column justify-content-center">
+      <div class="flex-wrapper">
+        <h3 class= "mb-4" id="assign-heading">Would you like to leave a review for <%= @therapist.first_name %>? </h3>
+        <div class="buttons-container d-flex">
+          <%= link_to new_therapist_review_path(@therapist) do %>
+          <div class="button-navy-small mr-3" id="yes">
+            Yes
+          </div>
+          <% end %>
+          <%= link_to dashboard_path do %>
+          <div class="specialty-tag" id="no">
+            No, thank you.
+          </div>
+          <% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,27 +1,4 @@
-// whole page stylıng
-.dashboard-container {
-
-  a, a:hover {
-    text-decoration:none;
-  }
-  #absolute {
-    position:absolute;
-    top: -50px;
-    margin-top:1rem;
-  }
-
-  .relative {
-    position:relative;
-  }
-
-  h3{
-    color: #4F5CAD;
-  }
-
-   h5 {
-    font-weight: normal;
-  }
-
+// global styles
 .padded-box {
   padding: 0 20px;
   border: 1px solid $border;
@@ -29,10 +6,54 @@
 
 }
 
+.white-text {
+  color:white;
+}
+
+// .ab-photo {
+//   position:absolute;
+//   top:0;
+// }
+
+.m-80 {
+    margin: 0 80px;
+}
+
+// whole page stylıng
+
+.dashboard-container {
+
+#dash {
+  width:fit-content;
+  padding: 20px 10px;
+  }
+  a, a:hover {
+    text-decoration:none;
+  }
+
+  #call{
+    margin:0;
+    font-weight:bold;
+    font-weight: lighter;
+
+  }
+
+  .relative {
+    position:relative;
+  }
+
+  #upcoming-header, #past-header {
+    font-size:24px;
+    font-weight:lighter;
+    margin-left:80px;
+    margin-bottom: 10px;
+
+  }
+
+
 
 .empty {
-  height:200px;
-  margin: 30px 0;
+  height:150px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -45,12 +66,20 @@
 }
 // assigned therapıst stylıng
 .assigned {
-  height:200px;
+  height: fit-content;
   background-color: #94ABE4;
-  padding-top:30px;
-  margin-bottom:30px;
-  h3, p {
+  padding-top: 6px;
+  margin-bottom: 18px;
+    h5 {
+    font-weight: normal;
     color:white;
+    margin-bottom:20px;
+    // margin-top:20px;
+  }
+  h4, p {
+    color:white;
+    margin-top:32px;
+    margin-bottom:25px;
   }
   .flex-2 {
     margin-left:30px;
@@ -69,37 +98,64 @@
   image_url('faces.png')
   ;
   background-size:cover;
-  width:140px;
+  width:100px;
+  height:100px;
 }
 // past bookings styling
 .past {
-  border: 1px solid $main;
+  border: 1px solid #DFE2E7;
+  padding-bottom: 30px;
 
+  a {
+    color:grey;
+  }
+  a:hover {
+    color:$main;
+  }
   h4 {
     font-size: 21px;
     padding: 10px 0 0 0 ;
   }
 
+  #line {
+    font-size:20px
+  }
+
 
 }
 .past-booking-card {
+  height: 150px;
   border-top: 1px solid #CDD4D6;
-  padding: 20px 20px;
+  margin-top:20px;
+  padding: 20px 20px 0px 20px;
 }
 .past-booking-card:first-child {
-  border: none;
-
+  border:none;
 }
-
-
 
 
 // today booking stylıng
+
+.today-date {
+    color: #4F5CAD;
+    font-size: 24px;
+
+}
+
 .today {
-  padding-top: 40px;
-  margin-bottom:30px;
+  padding: 40px;
+  margin: 0 80px;
+  height: 200px;
+  top: 25px;
+
+  a {
+    width: fit-content;
+    color:grey;
+
+  }
   .avatar-box {
     padding-right: 30px;
+    margin-top: -14px;
   }
 
 }
@@ -108,20 +164,20 @@
 }
 
 .calendar {
-    margin: 21px;
+    margin-top: 30px;
     position: relative;
     grid-template-rows: 50px 50px 50px;
     grid-template-columns: 50px 50px 50px;
     grid-gap:2px;
-    width: 160px;
+    width: 100px;
     height: 180px;
   }
 
   .fa-calendar {
-    font-size:11em;
-    color:$main;
-    position:absolute;
-    top:-20px;
+    font-size: 7em;
+    color: #7882e9;
+    position: absolute;
+    top: -33px;
   }
   .calendar-button {
     color:#7882E9;
@@ -129,26 +185,29 @@
     font-family: Avenir;
     }
     #date {
-    font-size: 6.5em;
-    font-family: $body-font;
-    font-weight:bold;
-    color:$main;
-    margin-top: 10px;
-    margin-right:5px;
-    text-align:center;
+    font-size: 3em;
+    font-family: "Avenir";
+    font-weight: bold;
+    color: #7882e9;
+    margin-top: 4px;
+    margin-left: 21px;
+  }
+  .calendar-date {
+    // margin-top: 3px;
   }
 
   .fa-video {
-    text-align:center;
-    font-size:40px;
-    padding: 21px;
-    color: #888888;
-    width: 80px;
-    height: 80px;
+    text-align: center;
+    font-size: 30px;
+    color: $main;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background-color: #D8D8D8;
+     background-color: $muted;
+    padding-top: 15px;
     &:hover {
-      color: $main;
+      color: white;
+      background-color:$main;
             }
   }
 

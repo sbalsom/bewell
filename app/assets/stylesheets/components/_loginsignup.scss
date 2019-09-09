@@ -32,6 +32,33 @@
     padding: 40px 40px;
   }
 
-.shared-links p {
+.shared-links a {
     font-size: 16px;
+    margin:0;
+    position:absolute;
+  }
+
+  .shared-links {
+    position:relative;
+
+  }
+
+  #sign-up {
+    bottom: -80px;
+    color:grey;
+  }
+
+  #forgot {
+    right:0;
+    font-size:15px;
+    color:grey;
+  }
+
+  #login {
+    color:grey;
+    font-size:20px;
+        bottom: -23px;
+
+    width:fit-content;
+    right:0;
   }

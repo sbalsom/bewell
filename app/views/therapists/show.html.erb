@@ -1,4 +1,4 @@
-<div class="therapist-show-container">
+<div class="therapist-show-container pl-5">
   <div class="show-first-flex-item">
     <%= cl_image_tag @therapist.photo, class: "avatar-large profile-avatar mx-4" %>
     <div class="d-flex flex-column justify-content-center">
@@ -21,11 +21,12 @@
           <i class="far fa-star"></i>
       </div>
       <% end %>
+      <p id="total-reviews"> <%= @therapist.reviews.count %></p>
       </div>
       <p><strong>Years of Experience</strong>: <%= @therapist.years_exp %></p>
       <div class="">
           <% @therapist.specialties.each do |specialty| %>
-            <div class="specialty-tag" id="specialty-tag-home">
+            <div class="specialty-tag mb-2" style="margin:0 auto">
               <%= specialty.name %>
             </div>
           <% end %>
@@ -35,13 +36,15 @@
   <div>
     <div class="bio-card">
       <div class="bio-description">
-        <p><%= @therapist.bio %></p>
+        <% @therapist.bio.split("\n").each do |text| %>
+            <p class="align-left"><%= text %></p>
+        <% end %>
       </div>
     </div>
     <div class="review-card">
       <h4>Reviews</h4>
       <% if @reviews %>
-      <% @reviews.each do |review| %>
+      <% @reviews.reject {|review| review.content.blank? }.each do |review| %>
         <div class="review">
           <div class="stars">
             <% full = review.rating.round(half: :down)  %>

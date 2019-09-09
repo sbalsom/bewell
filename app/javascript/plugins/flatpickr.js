@@ -9,6 +9,7 @@ const timePicker = document.getElementById("time-picker");
 // this function only deals with the days
 flatpickr(".timepicker", {
     enableTime: true,
+    time_24hr: true,
     noCalendar: true,
     dateFormat: "H:i",
     minDate: min,
@@ -23,9 +24,7 @@ availableDays.forEach((day) => {
 
 flatpickr(".datepicker", {
   altInput: true,
-  enableTime: true,
-  dateFormat: "Y-m-d H:i",
-  time_24hr: true,
+  dateFormat: "Y-m-d",
   minDate: "today",
   maxDate: new Date().fp_incr(60),
   enable: days

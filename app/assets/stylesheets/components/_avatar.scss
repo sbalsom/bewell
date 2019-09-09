@@ -5,6 +5,20 @@
   object-fit: cover;
 }
 
+.avatar-small-dashboard {
+  width: 90px;
+  height:90px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-medium {
+  width: 200px;
+  height:200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .avatar-large {
   width: 270px;
   height:270px;
@@ -15,6 +29,13 @@
 .avatar-badge {
   width: 50px;
   height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-badge {
+  width: 50px;
+  height:50px;
   border-radius: 50%;
   object-fit: cover;
 }

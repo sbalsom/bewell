@@ -18,8 +18,8 @@
   position: relative;
   margin-top: 20px !important;
   margin-left: 300px !important;
-  height: 500px !important;
-  width: 800px !important;
+  height: 400px !important;
+  width: 600px !important;
 }
 
 #end-call {
@@ -43,9 +43,9 @@
 <script>
 
 // credentials
-const apiKey = '45828062';
-const sessionId = '2_MX40NTgyODA2Mn5-MTU2NzUxNjkyMzg1M343dHNhLzNKcE9xdm1EWVR0TFYvQTVhWjl-UH4';
-const token = 'T1==cGFydG5lcl9pZD00NTgyODA2MiZzaWc9MmE1MTlhZmE1Zjg3N2RlZDY3ZDZmMGVmYmRmY2Q1MzEzMGVjNzRmODpzZXNzaW9uX2lkPTJfTVg0ME5UZ3lPREEyTW41LU1UVTJOelV4TmpreU16ZzFNMzQzZEhOaEx6TktjRTl4ZG0xRVdWUjBURll2UVRWaFdqbC1VSDQmY3JlYXRlX3RpbWU9MTU2NzUxNjk0MSZub25jZT0wLjY3ODEwMzI0NTA1MTkzMDkmcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTU2NzYwMzM0MQ==';
+const apiKey = '46414532';
+const sessionId = '2_MX40NjQxNDUzMn5-MTU2Nzc1NzYzNTgxNX5RNEExWFJvS3EzNXVGOU80Y1UydnlmWWd-fg';
+const token = 'T1==cGFydG5lcl9pZD00NjQxNDUzMiZzaWc9ZmE3NjA1MWNkYzM2OGU4MDY5YzBhNzdlNjczOWRlNDM0NjFhZTEzZjpzZXNzaW9uX2lkPTJfTVg0ME5qUXhORFV6TW41LU1UVTJOemMxTnpZek5UZ3hOWDVSTkVFeFdGSnZTM0V6TlhWR09VODBZMVV5ZG5sbVdXZC1mZyZjcmVhdGVfdGltZT0xNTY3NzU3NjYyJm5vbmNlPTAuOTgwMDEwNjAxODQ2NTI3MyZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTY4MzYyNDYxJmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9';
 
 // connect to session
 const session = OT.initSession(apiKey, sessionId);
@@ -63,7 +63,7 @@ session.on('streamCreated', function(event) {
 });
 
 </script>
-<%= link_to dashboard_path do %>
+<%= link_to therapist_booking_assign_path do %>
 <div id="end-call"><i class="fas fa-phone-slash" id="call-icon"></i></div>
 <% end %>
 

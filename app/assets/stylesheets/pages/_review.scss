@@ -1,10 +1,14 @@
 .main-review-container{
+  width:700px;
+  margin: 0 auto;
+  h6 {
+    text-align: center;
+  }
 #header, #sub-header {
-    margin-left:100px;
   }
 
   #header {
-    margin-top:30px;
+    margin-top:20px;
   }
 
   #name {
@@ -13,12 +17,14 @@
 
 
 form {
-  max-width: 300px;
-  margin-top:30px;
+  width: 700px;
+  margin-top:10px;
+  padding: 0px 33px;
+
 }
 
 .review-photo {
-  margin: 20px 20px 20px 20px;
+  margin: 10px 10px 10px 10px;
 }
   .rating {
     unicode-bidi: bidi-override;
@@ -36,13 +42,11 @@ form {
   }
 
 .review-container {
-  width: 60%;
-  min-width:350px;
+  width: 700px;
   box-shadow: -1px 1px 6px -2px rgba(189,189,189,1);
   padding: 20px;
-  margin-left: 100px;
-  margin-top:40px;
-  padding: 20px 20px;
+  margin:20px auto;
+  padding: 20px 20px 10px 20px;
 
   .first-flex-item div {
   text-align: center;
@@ -65,17 +69,7 @@ form {
     padding: 20px;
 }
 
-.first-attribute{
-  margin-bottom:20px;
-  }
 
-.second-attribute{
-  margin-bottom:20px;
-  }
-
-.third-attribute{
-   margin-bottom:20px;
-  }
 
   #review-submit {
     margin: 20px 0;
@@ -134,8 +128,8 @@ form {
 }
 
 #comment-section {
-  width:300px;
-  height:100px;
-  padding:0;
+  height:60px;
+  padding:15px;
+  margin: 20px 0px;
 }
 

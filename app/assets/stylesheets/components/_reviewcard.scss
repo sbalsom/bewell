@@ -3,23 +3,29 @@
   margin-top:20px;
   border-top: solid 1px $border;
   width:500px;
-  margin:20px;
-  padding:10px;
+  margin:13px 20px 20px 20px;
+  padding:15px 0;
+
+
+  p  {margin-top: 0;
+     }
 
   .review {
     border-bottom: solid 1px $border;
-    margin:10px;
-    padding:10px;
+    // margin:10px;
+    padding-bottom: 20px;
   }
 
   .stars {
-    margin-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 15px;
   }
 
   h4 {
     font-size : 20px;
     font-family: $body-font;
     font-weight: bold;
+    padding-top: 5px;
   }
 
  }

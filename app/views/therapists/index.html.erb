@@ -1,11 +1,8 @@
-
-  <div class="search-page ">
-
+<div class="search-page ">
   <div class="filters-stick-to-nav relative">
-    <div class="more-btn my-3 absolute">
+    <div class="more-btn my-3 absolute border-purple">
         More filters
        </div>
-
     <div class="item-1">
         <%= form_tag therapists_path, method: :get do %>
           <div class="search-bar d-flex">
@@ -13,16 +10,29 @@
               <% if params[:language].present? %>
               <%= hidden_field_tag :language, params[:language] %>
               <% end %>
-              <%= text_field_tag :query,
+              <% if params[:rate].present? %>
+                <%= hidden_field_tag :rate, params[:rate] %>
+              <% end %>
+              <% if params[:rating].present? %>
+                <%= hidden_field_tag :rating, params[:rating] %>
+              <% end %>
+              <% if params[:specialty].present? %>
+                <%= hidden_field_tag :specialty, params[:specialty] %>
+              <% end %>
+              <% if params[:years_exp].present? %>
+                <%= hidden_field_tag :years_exp, params[:years_exp] %>
+              <% end %>
+
+                <%= text_field_tag :query,
                 params[:query],
-                class: "my-3 mr-3",
+                class: "my-3 mr-3 search-bar-border",
                 id: "search-bar",
                 placeholder: "Search by name or specialty" %>
             </div>
         <% end %>
     </div>
     </div>
-    <div class="item-2 d-flex">
+    <div class="item-2 d-flex ml-1">
       <div class="filter filter-language">
          <%= form_tag therapists_path, method: :get do %>
           <% languages = [] %>
@@ -32,9 +42,21 @@
              <% end %>
            <div class="d-flex">
             <%= select_tag "language", options_for_select(languages.map{|s| ["#{s}", s]},:selected => params[:language]), prompt: "Language", class: "form-control", onchange: "this.form.submit()" %>
-            <% if params[:query].present? %>
-            <%= hidden_field_tag :query, params[:query] %>
-             <% end %>
+              <% if params[:query].present? %>
+                <%= hidden_field_tag :query, params[:query] %>
+              <% end %>
+              <% if params[:rate].present? %>
+                <%= hidden_field_tag :rate, params[:rate] %>
+              <% end %>
+              <% if params[:rating].present? %>
+                <%= hidden_field_tag :rating, params[:rating] %>
+              <% end %>
+              <% if params[:specialty].present? %>
+                <%= hidden_field_tag :specialty, params[:specialty] %>
+              <% end %>
+              <% if params[:years_exp].present? %>
+                <%= hidden_field_tag :years_exp, params[:years_exp] %>
+              <% end %>
              </div>
             <% end %>
 
@@ -47,55 +69,102 @@
               <% if params[:query].present? %>
                 <%= hidden_field_tag :query, params[:query] %>
               <% end %>
+              <% if params[:language].present? %>
+                <%= hidden_field_tag :language, params[:language] %>
+              <% end %>
+              <% if params[:rating].present? %>
+                <%= hidden_field_tag :rating, params[:rating] %>
+              <% end %>
+              <% if params[:specialty].present? %>
+                <%= hidden_field_tag :specialty, params[:specialty] %>
+              <% end %>
+              <% if params[:years_exp].present? %>
+                <%= hidden_field_tag :years_exp, params[:years_exp] %>
+              <% end %>
             </div>
           <% end %>
         </div>
 
-
-
+      <div class="filter filter-specialty">
+        <%= form_tag therapists_path, method: :get do %>
+           <div class="d-flex">
+            <%= select_tag "specialty", options_from_collection_for_select(@specialties, 'name', 'name', :selected => params[:specialty]), prompt: "Specialty", class: "form-control", onchange: "this.form.submit()" %>
+            <% if params[:query].present? %>
+                <%= hidden_field_tag :query, params[:query] %>
+              <% end %>
+              <% if params[:language].present? %>
+                <%= hidden_field_tag :language, params[:language] %>
+              <% end %>
+              <% if params[:rating].present? %>
+                <%= hidden_field_tag :rating, params[:rating] %>
+              <% end %>
+              <% if params[:rate].present? %>
+                <%= hidden_field_tag :rate, params[:rate] %>
+              <% end %>
+              <% if params[:years_exp].present? %>
+                <%= hidden_field_tag :years_exp, params[:years_exp] %>
+              <% end %>
+          </div>
+        <% end %>
+      </div>
         <div class="filter filter-exp toggle hidden">
           <%= form_tag therapists_path, method: :get do %>
           <div class="d-flex">
-            <%= select_tag "years_exp", options_for_select((1..10).step(1).to_a.map{|s| ["#{s}", s]}, :selected => params[:years_exp]), prompt: "Years of Experience",class: "form-control", onchange: "this.form.submit()" %>
-            <% if params[:query].present? %>
-              <%= hidden_field_tag :query, params[:query] %>
-            <% end %>
+            <%= select_tag "years_exp", options_for_select((1..10).step(1).to_a.map{|s| ["#{s}", s]}, :selected => params[:years_exp]), prompt: "Years of experience", class: "form-control", onchange: "this.form.submit()" %>
+           <% if params[:query].present? %>
+                <%= hidden_field_tag :query, params[:query] %>
+              <% end %>
+              <% if params[:language].present? %>
+                <%= hidden_field_tag :language, params[:language] %>
+              <% end %>
+              <% if params[:rating].present? %>
+                <%= hidden_field_tag :rating, params[:rating] %>
+              <% end %>
+              <% if params[:rate].present? %>
+                <%= hidden_field_tag :rate, params[:rate] %>
+              <% end %>
+              <% if params[:specialty].present? %>
+                <%= hidden_field_tag :specialty, params[:specialty] %>
+              <% end %>
           </div>
         <% end %>
       </div>
       <div class="filter filter-rating toggle hidden">
         <%= form_tag therapists_path, method: :get do %>
         <div class="d-flex">
-          <%= select_tag "rating", options_for_select((3..5).step(0.5).to_a.map{|s| ["#{s} stars or more", s]}, :selected => params[:rating]), prompt: "Average Rating", class: "form-control", onchange: "this.form.submit()" %>
-           <% if params[:query].present? %>
-            <%= hidden_field_tag :query, params[:query] %>
-            <% end %>
+          <%= select_tag "rating", options_for_select((3..5).step(0.5).to_a.map{|s| ["#{s} stars or more", s]}, :selected => params[:rating]), prompt: "Rating", class: "form-control", onchange: "this.form.submit()" %>
+            <% if params[:query].present? %>
+                <%= hidden_field_tag :query, params[:query] %>
+              <% end %>
+              <% if params[:language].present? %>
+                <%= hidden_field_tag :language, params[:language] %>
+              <% end %>
+              <% if params[:years_exp].present? %>
+                <%= hidden_field_tag :years_exp, params[:years_exp] %>
+              <% end %>
+              <% if params[:rate].present? %>
+                <%= hidden_field_tag :rate, params[:rate] %>
+              <% end %>
+              <% if params[:specialty].present? %>
+                <%= hidden_field_tag :specialty, params[:specialty] %>
+              <% end %>
           </div>
       <% end %>
       </div>
-      <div class="filter filter-specialty toggle hidden">
-        <%= form_tag therapists_path, method: :get do %>
-          <div class="d-flex">
-            <%= select_tag "specialty", options_from_collection_for_select(@specialties, 'name', 'name', :selected => params[:specialty]), prompt: "Specialty", class: "form-control", onchange: "this.form.submit()" %>
-            <% if params[:query].present? %>
-            <%= hidden_field_tag :query, params[:query] %>
-          </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+
     </div>
   </div>
 
    <div class=therapist-results-header>
-   <h4>40 Therapists Found</h4>
+
+   <h4><%= @therapists.count %> Therapists Found</h4>
   </div>
 
   <div class="search-results px-5 d-flex flex-column justify-content-center">
     <% @therapists.each do |therapist| %>
       <%= link_to therapist_path(therapist) do %>
       <div class="therapist-cards">
-        <div class="profile-card position-rel mx-5">
+        <div class="profile-card position-rel mx-5 border-conform mb-2">
           <div class="profile-avatar-spacing d-flex flex-column align-items-center mt-3">
             <%= cl_image_tag therapist.photo, class: "avatar-small profile-avatar" %>
           <div class="stars">
@@ -116,6 +185,8 @@
                   <i class="far fa-star"></i>
               </div>
             <% end %>
+            <p id="total-reviews"> <%= therapist.reviews.count %> </p>
+
           </div>
         </div>
         <div class="profile-description">
@@ -131,14 +202,17 @@
               <% end %>
             </div>
             <div id="price">
-                €<%= therapist.rate %> EUR/hour
+                €<%= therapist.rate %>/hour
            </div>
         </div>
       </div>
     </div>
+     <% end %>
+  <% end %>
   </div>
-  <% end %>
-  <% end %>
+
+</div>
+
  <script>
 
     const moreBtn = document.querySelector(".more-btn");

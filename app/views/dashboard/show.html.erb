@@ -18,44 +18,38 @@
         <% end %>
         <% end %>
       </div>
+
   </div>
   <% else %>
-    <div class="assigned d-flex px-5">
+    <div class="assigned d-flex flex-column justify-content-center mb-5">
+      <div class="content-wrap d-flex px-5 mb-5 pt-5">
       <div class="avatar-small mb-3" id="no-therapist">
-
       </div>
-    <%#= image_tag 'faces.png', width: 140, class: "avatar-small mb-3" %>
     <div class="flex-2">
-      <h3>You don't have an assigned therapist yet !</h3>
-        <% if @next_booking.blank? %>
-        <p>You have no upcoming sessions</p>
+      <h3 class="white-text">You don't have an assigned therapist yet !</h3>
         <%= link_to therapists_path do %>
-        <div class="white-button">
-          Book now
+        <div class="white-button" id="dash">
+          Find one now
         </div>
         <% end %>
-        <% end %>
-      </div>
+    </div>
   </div>
-  <% end %>
+  </div>
 
 <div class="inner-container px-5">
 
+<h3 id="upcoming-header">Upcoming Appointments</h3>
   <% if @today_booking %>
-    <div class="today border padded-box mt-5 d-flex relative">
-      <h3 id="absolute">Upcoming Appointments</h3>
-        <div class="calendar">
+    <div class="today border padded-box d-flex mb-5 relative m-80">
+      <div class="calendar mr-4">
           <p id="date"> <%= @today_booking.starts_at.strftime("%d") %> </p>
           <i class="far fa-calendar" aria-hidden="true"></i>
         </div>
-        <div class="pl-3 flex-grow">
-          <h3 class="mb-3"> <%= @today_booking.starts_at.strftime("%A, %d.%m.%Y %H:%M") %></h3>
-          <div class="d-flex flex-column justify-content-center">
-            <%= link_to booking_video_session_path(@today_booking) do %>
+        <div class="calendar-date pl-3 flex-grow">
+          <h3 class="mb-3 today-date"> <%= @today_booking.starts_at.strftime("%A, %d %B") %> at <%= @today_booking.time.strftime("%H:%M")%></h3>
+          <%= link_to  therapist_booking_video_session_path(@today_booking.therapist, @today_booking), class: "d-flex flex-column align-items-center" do %>
             <i class="fas fa-video mb-3" aria-hidden="true"></i>
             <% end %>
-            <h5>Start Call</h5>
-          </div>
         </div>
         <div class="avatar-box">
           <%= link_to therapist_path(@today_booking.therapist) do %>
@@ -63,29 +57,28 @@
           <% end %>
            <h5>Dr. <%= @today_booking.therapist.first_name %> <%= @today_booking.therapist.last_name %> </h5>
         </div>
-    </div>
     <% else %>
-    <div class="empty border padded-box mt-5 relative">
-      <h3 id="absolute">Upcoming Appointments</h3>
+    <div class="empty border padded-box mb-5 m-80">
       <p>You have no upcoming appointments. When you schedule one, the call button will be displayed here.</p>
     </div>
   <% end %>
+  <h3 id="past-header">Past Appointments</h3>
   <% if !@past_bookings.blank? %>
-    <div class="past padded-box mt-5 relative">
-      <h3 id="absolute">Past Appointments</h3>
+    <div class="past padded-box m-80 mb-5">
      <%= render partial: "shared/past_bookings", past_bookings: @past_bookings %>
     </div>
  <%  %>
   <% else %>
-    <div class="empty border padded-box mt-5 relative">
-      <h3 id="absolute">Past Appointments</h3>
+    <div class="empty border padded-box mb-5 m-80">
       <p>You have not completed any sessions. When you have, you will be able to access them here.</p>
     </div>
 <% end %>
 
 </div>
 </div>
+
 </div>
+
 
 
     <%#= link_to 'Add to Calendar', edit_therapist_booking_path(@today_booking.therapist, @today_booking), class: "calendar-button d-flex mx-2" %>

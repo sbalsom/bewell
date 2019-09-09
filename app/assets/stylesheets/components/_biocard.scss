@@ -1,7 +1,10 @@
 .bio-card {
   max-width: 599px;
-  padding: 34px 37px 34px 19px;
+  padding: 34px 37px 2px 19px;
   text-align: justify;
   text-align-last: left;
 
+  p {
+    margin-bottom: 1.4rem;
+  }
 }

@@ -1,13 +1,14 @@
-<div class="booking-confirmation-container">
+<div class="booking-confirmation-container px-5">
   <div class="booking-confirmation-content">
     <div>
       <p>
         <i class="far fa-check-circle d-flex justify-content-center align-items-center mt-2" id="confirmation-icon"></i>
       </p>
-      <h2 class="d-flex justify-content-center align-items-center">Booking confirmation</h2>
+      <h2 class="d-flex justify-content-center align-items-center">Booking confirmed</h2>
     </div>
+
     <% if @booking.user.name %>
-    <p class="mt-5">Thank you <%= @booking.user.name %>,</p>
+    <p class="mt-5">Thank you <%= @booking.user.name.capitalize %>,</p>
     <% else %>
     Thank you!
     <% end %>

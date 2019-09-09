@@ -1,22 +1,19 @@
 <div class="main-review-container">
-  <h3 id="header"> Rate Your Therapist </h3>
-   <p id="sub-header">Want to provide some feedback for your therapist?</p>
+  <h4 id="header"> How was your session? </h4>
+   <p id="sub-header">Your feedback helps us to maintain a database of quality professionals.</p>
   <div class="review-container">
     <div class="row">
-      <div class="col">
-         <h3 id="name">Dr <%= @therapist.first_name %> <%= @therapist.last_name %>
-        </h3>
+      <div class="col d-flex justify-content-center align-items-center">
+        <%= cl_image_tag @therapist.photo, class: "avatar-small review-photo" %>
+
       </div>
-    </div>
-    <div class="row">
-      <div class="col d-flex justify-content-center">
-        <%= cl_image_tag @therapist.photo, class: "avatar-large review-photo" %>
-      </div>
+
       <div class="col d-flex justify-content-center">
         <div class="wrapper">
+          <h5 id="name">Dr <%= @therapist.first_name %> <%= @therapist.last_name %></h5>
         <form class="new_review" id="new_review" action="/therapists/<%= @therapist.id %>/reviews" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="xuXh5GGJtIsx0wtA4WnSrs5rFR7LoTiNsv24I/2Io41pukC+q6aJICwqs+NRqvN0HtniRER+5YxcJtdXPDNZUg==" id="rating-form" />
-         <div class="first-attribute d-flex flex-column">
-          <h6> I had the space to express my feelings </h6>
+         <div class="first-attribute d-flex flex-row align-items-center justify-content-between">
+          <h6>I had the space to express my feelings </h6>
 
          <span class="rating-star">
               <input type="radio" name="rating_p" value="5"><span class="star"></span>
@@ -26,8 +23,8 @@
               <input type="radio" name="rating_p" value="1"><span class="star"></span>
        </span>
       </div>
-        <div class="second-attribute d-flex flex-column">
-          <h6> My therapist showed me empathy </h6>
+        <div class="second-attribute d-flex flex-row align-items-center justify-content-between">
+          <h6>The method and style of therapy was helpful to me </h6>
           <span class="rating-star">
               <input type="radio" name="rating_c" value="5"><span class="star"></span>
               <input type="radio" name="rating_c" value="4"><span class="star"></span>
@@ -36,8 +33,18 @@
               <input type="radio" name="rating_c" value="1"><span class="star"></span>
           </span>
       </div>
-         <div class="third-attribute d-flex flex-column">
-          <h6> I felt understood by my therapist </h6>
+      <div class="third-attribute d-flex flex-row align-items-center justify-content-between">
+          <h6>The therapist gave an accurate self-description in their profile</h6>
+          <span class="rating-star">
+              <input type="radio" name="rating_d" value="5"><span class="star"></span>
+              <input type="radio" name="rating_d" value="4"><span class="star"></span>
+              <input type="radio" name="rating_d" value="3"><span class="star"></span>
+              <input type="radio" name="rating_d" value="2"><span class="star"></span>
+              <input type="radio" name="rating_d" value="1"><span class="star"></span>
+          </span>
+      </div>
+         <div class="fourth-attribute d-flex flex-row align-items-center justify-content-between">
+          <h6>I felt understood by my therapist </h6>
 
           <span class="rating-star">
               <input type="radio" name="rating_u" value="5"><span class="star"></span>
@@ -47,8 +54,12 @@
               <input type="radio" name="rating_u" value="1"><span class="star"></span>
           </span>
         </div>
-        <input type="text" name="content" class="form-control" id="comment-section" placeholder="Any other comments?">
+        <input type="text" name="content" class="form-control d-flex justify-content-center" id="comment-section" placeholder="Any other comments?">
+        Assign this therapist for my future sessions
+        <input type="checkbox" name="assign">
+        <div class="d-flex justify-content-center w-100">
         <input type="submit" value="Submit" class="button-navy" id="review-submit">
+        </div>
     </form>
     </div>
     </div>

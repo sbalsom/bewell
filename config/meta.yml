@@ -1,0 +1,5 @@
+meta_product_name: "iWell"
+meta_title: "iWell - Online Affordable Therapy at your convenience"
+meta_description: "Relevant description"
+meta_image: "meta-image.jpeg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
