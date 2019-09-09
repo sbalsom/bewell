@@ -2,30 +2,23 @@
 <div class="dashboard-container d-flex flex-column">
 
   <% if @user_therapist %>
-  <div class="assigned d-flex flex-column justify-content-center py-3 mb-5">
- <div class="content-wrap d-flex px-5 relative">
-      <%= link_to therapist_path(@user_therapist) do %>
-   <%= cl_image_tag @user_therapist.photo, width: 140, class: "avatar-small mb-3 ab-photo" %>
-   <% end %>
-   <div class="flex-2">
-     <h4>Your assigned therapist is <%=
-       @user_therapist.first_name %> <%= @user_therapist.last_name %></h4>
-       <% if @user_therapist %>
-       <%= link_to therapist_path(@user_therapist) do %>
-       <div class="white-button">
-         Book now
-       </div>
-       <% end %>
-       <% else %>
-       <%= link_to therapists_path do %>
-       <div class="white-button">
-         Book now
-       </div>
-       <% end %>
+  <div class="assigned d-flex px-5">
+    <%= link_to therapist_path(@user_therapist) do %>
+    <%= cl_image_tag @user_therapist.photo, width: 140, class: "avatar-small mb-3" %>
+    <% end %>
+    <div class="flex-2">
+      <h3>Your assigned therapist is <%=
+        @user_therapist.first_name %> <%= @user_therapist.last_name %></h3>
+        <% if @next_booking.blank? %>
+        <p>You have no upcoming sessions with your therapist</p>
+        <%= link_to therapists_path do %>
+        <div class="white-button">
+          Book now
+        </div>
+        <% end %>
+        <% end %>
+      </div>
 
-       <% end %>
-     </div>
- </div>
   </div>
   <% else %>
     <div class="assigned d-flex flex-column justify-content-center mb-5">
@@ -43,8 +36,7 @@
   </div>
   </div>
 
-  <% end %>
-
+<div class="inner-container px-5">
 
 <h3 id="upcoming-header">Upcoming Appointments</h3>
   <% if @today_booking %>
@@ -59,14 +51,11 @@
             <i class="fas fa-video mb-3" aria-hidden="true"></i>
             <% end %>
         </div>
-        <div class="d-flex flex-column justify-content-center align-items-center">
-        <h7 id="badge-name">Dr. <%= @today_booking.therapist.first_name %> <%= @today_booking.therapist.last_name %> </h7>
+        <div class="avatar-box">
           <%= link_to therapist_path(@today_booking.therapist) do %>
-          <%= cl_image_tag @today_booking.therapist.photo, width: 140, class: "avatar-small" %>
+          <%= cl_image_tag @today_booking.therapist.photo, width: 140, class: "avatar-small mb-3" %>
           <% end %>
-          </div>
-
-
+           <h5>Dr. <%= @today_booking.therapist.first_name %> <%= @today_booking.therapist.last_name %> </h5>
         </div>
     <% else %>
     <div class="empty border padded-box mb-5 m-80">
@@ -87,7 +76,8 @@
 
 </div>
 </div>
-    </div>
+
+</div>
 
 
 

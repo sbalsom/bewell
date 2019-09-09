@@ -2,8 +2,10 @@
   <div class="past-booking-card d-flex">
     <div class="avatar-box mr-4">
       <%= link_to therapist_path(booking.therapist) do %>
-      <%= cl_image_tag booking.therapist.photo, class: "avatar-small-dashboard mb-3" %>
+      <%= cl_image_tag booking.therapist.photo, width: 140, class: "avatar-small mb-3" %>
       <% end %>
+      <h5>Dr. <%= booking.therapist.first_name %> <%= booking.therapist.last_name %> </h5>
+
     </div>
 
     <div class="past-info d-flex flex-column justify-content-around ml-5">
